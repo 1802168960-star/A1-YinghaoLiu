@@ -8,11 +8,13 @@ public class Surgeon extends HealthProfessional {
     public Surgeon(String id, String name, String[] availableDays,
             String specialty, String operatingRoom) {
         super(id, name, availableDays);
+        // Store validated values that only a surgeon needs.
         this.specialty = requireText(specialty, "Specialty");
         this.operatingRoom = requireText(operatingRoom, "Operating room");
     }
 
     public Surgeon(String id, String name, String specialty, String operatingRoom) {
+        // Use the standard Monday-to-Friday availability.
         this(id, name, defaultAvailableDays(), specialty, operatingRoom);
     }
 
