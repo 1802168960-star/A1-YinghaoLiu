@@ -8,6 +8,7 @@ public class Appointment implements Comparable<Appointment> {
 
     public Appointment(Patient patient, HealthProfessional healthProfessional,
             TimeSlot timeSlot) {
+        // Reject incomplete appointments before storing any values.
         if (patient == null || healthProfessional == null || timeSlot == null) {
             throw new IllegalArgumentException("Appointment details cannot be empty.");
         }
@@ -31,6 +32,7 @@ public class Appointment implements Comparable<Appointment> {
 
     @Override
     public int compareTo(Appointment other) {
+        // Time is the only field used for appointment ordering.
         return timeSlot.compareTo(other.timeSlot);
     }
 
