@@ -8,9 +8,11 @@ public class TimeSlot implements Comparable<TimeSlot> {
     private final int minute;
 
     public TimeSlot(int hour, int minute) {
+        // Hours must be within the normal 24-hour range.
         if (hour < 0 || hour > 23) {
             throw new IllegalArgumentException("Hour must be between 0 and 23.");
         }
+        // Clinic appointments only use hour and half-hour slots.
         if (minute != 0 && minute != 30) {
             throw new IllegalArgumentException("Minute must be 0 or 30.");
         }

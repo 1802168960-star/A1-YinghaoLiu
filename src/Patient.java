@@ -6,9 +6,11 @@ public class Patient {
     private final String mobileNumber;
 
     public Patient(String name, String mobileNumber) {
+        // Validate the patient name before storing it.
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Patient name cannot be empty.");
         }
+        // Require a mobile number with exactly 11 digits.
         if (mobileNumber == null || mobileNumber.length() != 11) {
             throw new IllegalArgumentException(
                     "Mobile number must contain exactly 11 digits.");
@@ -38,5 +40,3 @@ public class Patient {
         return "Patient: " + name + " | Mobile: " + mobileNumber;
     }
 }
-
-
